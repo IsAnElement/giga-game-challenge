@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6avewkryhfs3"]
+[gd_scene load_steps=3 format=3 uid="uid://c6avewkryhfs3"]
+
+[ext_resource type="Script" path="res://scenes/games/pong/wall/wall.gd" id="1_71ny8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asbye"]
 size = Vector2(1920, 20)
 
 [node name="Wall" type="Area2D"]
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_71ny8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_asbye")

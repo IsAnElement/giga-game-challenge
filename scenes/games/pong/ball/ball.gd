@@ -6,6 +6,10 @@ var direction: Vector2 = Vector2.ZERO
 var speed: float = 0
 
 
+func _ready() -> void:
+	collision_shape_2d.shape.radius = Constants.ball_radius
+
+
 func _process(delta: float) -> void:
 	queue_redraw()
 	global_position += direction * speed * delta
