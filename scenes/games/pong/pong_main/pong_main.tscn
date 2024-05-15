@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://0icnhqmxitjt"]
+
+[ext_resource type="Script" path="res://scenes/games/pong/pong_main/pong_main.gd" id="1_pa0o6"]
+[ext_resource type="PackedScene" uid="uid://4riqju6cds13" path="res://scenes/games/pong/paddle/paddle.tscn" id="1_srhv3"]
+[ext_resource type="PackedScene" uid="uid://bacp2clnv1lhd" path="res://scenes/games/pong/death_zone/death_zone.tscn" id="3_23483"]
+[ext_resource type="PackedScene" uid="uid://curmkjxxbqh5a" path="res://scenes/games/pong/ball/ball.tscn" id="4_yrtle"]
+
+[node name="PongMain" type="CanvasLayer"]
+script = ExtResource("1_pa0o6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.568627, 0.768627, 0.862745, 1)
+
+[node name="PaddleOne" parent="." instance=ExtResource("1_srhv3")]
+position = Vector2(10, 10)
+
+[node name="DeathZonePlayerOne" parent="." instance=ExtResource("3_23483")]
+position = Vector2(0, 540)
+
+[node name="PaddleTwo" parent="." instance=ExtResource("1_srhv3")]
+position = Vector2(1900, 10)
+
+[node name="DeathZonePlayerTwo" parent="." instance=ExtResource("3_23483")]
+position = Vector2(1920, 540)
+which_player = 1
+
+[node name="Ball" parent="." instance=ExtResource("4_yrtle")]
+position = Vector2(960, 540)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="PlayerOneScoreLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 100
+text = "5"
+
+[node name="PlayerTwoScoreLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 100
+text = "5"
