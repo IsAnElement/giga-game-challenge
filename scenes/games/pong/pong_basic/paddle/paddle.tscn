@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4riqju6cds13"]
 
-[ext_resource type="Script" path="res://scenes/games/pong/paddle/paddle.gd" id="1_skojr"]
+[ext_resource type="Script" path="res://scenes/games/pong/pong_basic/paddle/paddle.gd" id="1_skojr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8slfi"]
 size = Vector2(10, 100)
@@ -11,10 +11,14 @@ collision_mask = 2
 monitorable = false
 script = ExtResource("1_skojr")
 
+[node name="PaddleShape" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 10, 0, 10, 100, 0, 100)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 50)
 shape = SubResource("RectangleShape2D_8slfi")
 
-[node name="PaddleShape" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(0, 0, 10, 0, 10, 100, 0, 100)
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

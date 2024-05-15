@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://0icnhqmxitjt"]
 
-[ext_resource type="Script" path="res://scenes/games/pong/pong_main/pong_main.gd" id="1_pa0o6"]
-[ext_resource type="PackedScene" uid="uid://4riqju6cds13" path="res://scenes/games/pong/paddle/paddle.tscn" id="1_srhv3"]
-[ext_resource type="PackedScene" uid="uid://bacp2clnv1lhd" path="res://scenes/games/pong/death_zone/death_zone.tscn" id="3_23483"]
-[ext_resource type="PackedScene" uid="uid://curmkjxxbqh5a" path="res://scenes/games/pong/ball/ball.tscn" id="4_yrtle"]
-[ext_resource type="PackedScene" uid="uid://c6avewkryhfs3" path="res://scenes/games/pong/wall/wall.tscn" id="5_pr80h"]
+[ext_resource type="Script" path="res://scenes/games/pong/pong_basic/pong_main/pong_main.gd" id="1_pa0o6"]
+[ext_resource type="PackedScene" uid="uid://4riqju6cds13" path="res://scenes/games/pong/pong_basic/paddle/paddle.tscn" id="1_srhv3"]
+[ext_resource type="PackedScene" uid="uid://bacp2clnv1lhd" path="res://scenes/games/pong/pong_basic/death_zone/death_zone.tscn" id="3_23483"]
+[ext_resource type="PackedScene" uid="uid://curmkjxxbqh5a" path="res://scenes/games/pong/pong_basic/ball/ball.tscn" id="4_yrtle"]
+[ext_resource type="PackedScene" uid="uid://c6avewkryhfs3" path="res://scenes/games/pong/pong_basic/wall/wall.tscn" id="5_pr80h"]
 
 [node name="PongMain" type="CanvasLayer"]
 script = ExtResource("1_pa0o6")
@@ -21,14 +21,15 @@ color = Color(0.568627, 0.768627, 0.862745, 1)
 position = Vector2(10, 10)
 
 [node name="DeathZonePlayerOne" parent="." instance=ExtResource("3_23483")]
-position = Vector2(0, 540)
+position = Vector2(-119, 540)
 
 [node name="PaddleTwo" parent="." instance=ExtResource("1_srhv3")]
 position = Vector2(1900, 10)
 player_int = 1
 
 [node name="DeathZonePlayerTwo" parent="." instance=ExtResource("3_23483")]
-position = Vector2(1920, 540)
+position = Vector2(2049, 544)
+rotation = 3.14159
 which_player = 1
 
 [node name="Ball" parent="." instance=ExtResource("4_yrtle")]
@@ -63,6 +64,7 @@ position = Vector2(960, 1080)
 
 [node name="PlayerWinsLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

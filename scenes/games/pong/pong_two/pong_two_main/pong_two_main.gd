@@ -13,6 +13,8 @@ var player_one_down: bool = false
 var player_one_up: bool = false
 var player_one_score: int = 0
 var player_two_score: int = 0
+var player_two_ai_target: Vector2 = Vector2(0, Constants.paddle_height / 2.0)
+
 
 
 func _ready() -> void:

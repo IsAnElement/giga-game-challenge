@@ -1,6 +1,14 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://3f3r1x8uorxq"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://3f3r1x8uorxq"]
 
 [ext_resource type="Texture2D" uid="uid://b1m108vlcqanr" path="res://assets/panels/new_panel_stuff.png" id="1_08xrd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wq52"]
+texture = ExtResource("1_08xrd")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(190, 200, 50, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijiou"]
 texture = ExtResource("1_08xrd")
@@ -11,4 +19,5 @@ texture_margin_bottom = 5.0
 region_rect = Rect2(310, 200, 50, 30)
 
 [resource]
+Button/styles/normal = SubResource("StyleBoxTexture_7wq52")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ijiou")

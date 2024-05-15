@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://cawsq2m8mk5l7"]
+
+[ext_resource type="Script" path="res://scenes/games/pong/pong_two/pong_two_main/pong_two_main.gd" id="1_04e2v"]
+[ext_resource type="PackedScene" uid="uid://4riqju6cds13" path="res://scenes/games/pong/pong_basic/paddle/paddle.tscn" id="2_05ier"]
+[ext_resource type="PackedScene" uid="uid://bacp2clnv1lhd" path="res://scenes/games/pong/pong_basic/death_zone/death_zone.tscn" id="3_urwq1"]
+[ext_resource type="PackedScene" uid="uid://curmkjxxbqh5a" path="res://scenes/games/pong/pong_basic/ball/ball.tscn" id="4_tdnbk"]
+[ext_resource type="PackedScene" uid="uid://c6avewkryhfs3" path="res://scenes/games/pong/pong_basic/wall/wall.tscn" id="5_ko8xw"]
+
+[node name="PongTwoMain" type="CanvasLayer"]
+script = ExtResource("1_04e2v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.568627, 0.768627, 0.862745, 1)
+
+[node name="PaddleOne" parent="." instance=ExtResource("2_05ier")]
+position = Vector2(10, 10)
+
+[node name="DeathZonePlayerOne" parent="." instance=ExtResource("3_urwq1")]
+position = Vector2(0, 540)
+
+[node name="PaddleTwo" parent="." instance=ExtResource("2_05ier")]
+position = Vector2(1900, 10)
+player_int = 1
+
+[node name="DeathZonePlayerTwo" parent="." instance=ExtResource("3_urwq1")]
+position = Vector2(1920, 540)
+which_player = 1
+
+[node name="Ball" parent="." instance=ExtResource("4_tdnbk")]
+position = Vector2(960, 540)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="PlayerOneScoreLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 100
+text = "0
+"
+
+[node name="PlayerTwoScoreLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 100
+text = "0
+"
+
+[node name="Wall" parent="." instance=ExtResource("5_ko8xw")]
+position = Vector2(960, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("5_ko8xw")]
+position = Vector2(960, 1080)
+
+[node name="PlayerWinsLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.0
+offset_top = -184.0
+offset_right = 365.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "PLAYER ONE WINS!"
+horizontal_alignment = 1
